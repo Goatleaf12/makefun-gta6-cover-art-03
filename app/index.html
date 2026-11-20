@@ -3,21 +3,99 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cover Snap</title>
-<link rel="stylesheet" href="./style.css">
+<title>Sunset State Cover Studio — GTA-style cover art maker</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main class="app">
-  <section class="controls">
-    <h1>Cover Snap</h1>
-    <p>A photo and a caption, made into a square cover.</p>
-    <label>Photo <input id="photo" type="file" accept="image/*"></label>
-    <label>Caption <input id="caption" type="text" maxlength="40" value="Sunset Heist"></label>
-    <button id="export" type="button">Export PNG 1080 x 1080</button>
-    <p id="status" role="status"></p>
+<header class="topbar">
+  <div class="brand">SUNSET STATE <span>COVER STUDIO</span></div>
+  <ol class="steps">
+    <li class="on">1 Add photos</li>
+    <li>2 Pick a size</li>
+    <li>3 Export PNG</li>
+  </ol>
+  <nav class="size-tabs" id="sizeTabs" aria-label="Post size"></nav>
+  <button id="exportAll" class="primary">EXPORT ALL 3 SIZES</button>
+</header>
+
+<main class="layout">
+  <aside class="col photos-col">
+    <h2>Photos</h2>
+    <div id="photoStrip" class="strip"></div>
+    <label class="add-btn">+ ADD PHOTOS
+      <input type="file" id="fileInput" accept="image/*" multiple hidden>
+    </label>
+    <div class="photo-actions">
+      <button id="fillAll" type="button">FILL ALL PANELS</button>
+      <button id="spreadAll" type="button">SPREAD PHOTOS</button>
+    </div>
+    <p class="hint">Drag a photo onto a panel to replace it — or click a photo, then click a panel. Photos never leave your machine.</p>
+    <p id="statusLine" class="status">LOADING SAMPLES…</p>
+  </aside>
+
+  <section class="col stage">
+    <canvas id="cover" width="1920" height="1080"></canvas>
+    <p class="hint center">Click a panel to select · drag to pan · scroll to zoom · double-click to re-centre</p>
   </section>
-  <canvas id="cover" width="1080" height="1080" aria-label="The cover"></canvas>
+
+  <aside class="col controls">
+    <h2>Recipes</h2>
+    <div id="recipeRow" class="chips"></div>
+
+    <h2>Layout</h2>
+    <div id="layoutGrid" class="layout-grid"></div>
+
+    <h2>Grade</h2>
+    <div id="gradeRow" class="chips"></div>
+
+    <div class="slider-rows">
+      <label>Strength <input type="range" id="fxStrength" min="0" max="120" value="85"></label>
+      <label>Contrast <input type="range" id="fxContrast" min="60" max="140" value="100"></label>
+      <label>Saturation <input type="range" id="fxSaturation" min="60" max="140" value="100"></label>
+      <label>Grain <input type="range" id="fxGrain" min="0" max="100" value="50"></label>
+      <label>Vignette <input type="range" id="fxVignette" min="0" max="100" value="55"></label>
+    </div>
+    <div class="toggle-rows">
+      <label><input type="checkbox" id="fxHalftone"> Halftone print dots</label>
+      <label><input type="checkbox" id="fxPaper" checked> Paper finish</label>
+      <label><input type="checkbox" id="showTags" checked> Panel location tags</label>
+      <label>Gutters
+        <select id="gutterStyle">
+          <option value="dark" selected>Dark</option>
+          <option value="cream">Cream</option>
+        </select>
+      </label>
+    </div>
+
+    <h2>Caption</h2>
+    <div class="field-grid">
+      <label>Title <input type="text" id="capTitle" value="SUNSET STATE"></label>
+      <label>Script subtitle <input type="text" id="capSubtitle" value="Vice Shores"></label>
+      <label>Tagline <input type="text" id="capTagline" value="EVERY SUNSET HAS A PRICE"></label>
+      <label>Seal <input type="text" id="capSeal" value="ORIGINAL COVER ART"></label>
+      <label>Volume <input type="text" id="capVolume" value="VOL. 06"></label>
+      <label>Wanted word <input type="text" id="capWanted" value="MOST WANTED"></label>
+      <label>Ribbon <input type="text" id="capRibbon" value="COLLECTOR'S EDITION"></label>
+      <label>Quote <input type="text" id="capQuote" value="A POSTCARD FROM THE EDGE OF TROUBLE"></label>
+      <label>Stars <input type="range" id="capStars" min="0" max="5" step="1" value="5"></label>
+    </div>
+
+    <h2>Panel tag</h2>
+    <p class="panel-label" id="panelLabel">PANEL 1 OF 5</p>
+    <div class="field-grid">
+      <label>Place <input type="text" id="tagPlace" value="Ocean Drive"></label>
+      <label>Sub-line <input type="text" id="tagSub" value="6:42 PM · Looking for trouble"></label>
+    </div>
+
+    <h2>Export</h2>
+    <div class="export-rows">
+      <button type="button" id="export-wide">PNG · 1920 × 1080</button>
+      <button type="button" id="export-tall">PNG · 1080 × 1350</button>
+      <button type="button" id="export-square">PNG · 1080 × 1080</button>
+    </div>
+  </aside>
 </main>
-<script type="module" src="./src/main.js"></script>
+
+<script type="module" src="src/main.js"></script>
 </body>
 </html>
