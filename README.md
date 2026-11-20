@@ -5,11 +5,11 @@ Design a pulp poster cover for the fictional state of Leonida: arrange photos
 in comic panels, grade them like a 1980s crime paperback, and finish with
 full magazine lettering — then export a pixel-exact PNG in three sizes.
 
-![Competition](https://make.fun/badge/gta6-cover-art-01.svg)
-![Rank](https://make.fun/badge/gta6-cover-art-01/Goatleaf12/makefun-gta6-cover-art-03/rank.svg)
-![Reward](https://make.fun/badge/gta6-cover-art-01/Goatleaf12/makefun-gta6-cover-art-03/reward.svg)
+[![make.fun · gta6-cover-art-01](https://make.fun/badge/gta6-cover-art-01.svg)](https://make.fun/bounty/gta6-cover-art-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
+[![rank](https://make.fun/badge/gta6-cover-art-01/Goatleaf12/makefun-gta6-cover-art-03/rank.svg)](https://make.fun/bounty/gta6-cover-art-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
+[![reward](https://make.fun/badge/gta6-cover-art-01/Goatleaf12/makefun-gta6-cover-art-03/reward.svg)](https://make.fun/bounty/gta6-cover-art-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
 
-Competition page: https://make.fun/c/gta6-cover-art-01
+Competition page: https://make.fun/bounty/gta6-cover-art-01
 
 ## What it does
 
